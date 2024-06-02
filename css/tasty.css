@@ -1,73 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-* {
+*, *::before, *::after{
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
 }
-html {
-	
-}
-:root {
 
-}
 body {
-	font-size: calc(var(--index-tasty) * 1);
 	font-family: "Poppins", sans-serif;
-	--index-tasty: calc(1vw + 1vh);
-	--main-hue:208;
-	--main-color:  hsl(var(--main-hue), 92%, 54%);
-	--main-color-hover: hsl(var(--main-hue), 77%, 48%);
-	--light-main-color: #2493F5;
+	--main-hue: 208;
 	--text-color: #000;
-	--light-text-color: #323538;
-	--bg-color: #d6e3db;
-	--input-bg: #aec0f5;
-	--input-bg-hover: #8697cb;
-	--input-text: #636b77;
-	--input-shadow: hsla(var(--main-hue), 92%, 54%, 0.169);
-	--input-shadow-focus: hsla(var(--main-hue), 91%, 55%, 0.2);
-	--nav-color: #ff6505;
+	--main-color: #1e91f6;
+	--nav-color: #002e46; 
+	--bg-color: #fff;
+	--light-text-color: #283b59;
+	--main-color-hover: #1565ac;
+	--input-bg: #c5d8e9;
+	--input-bg-hover: #86adcf;
+	--input-text: #5f697b;
+	--light-main-color: #2493f5;
 }
-
-.dark{
-	--bg-color: hsl(var(--main-hue), 30%, 16.5%);
-	--input-bg: hsla(var(--main-hue), 22%,50%,11%);
-	--input-bg-hover: hsla(var(--main-hue), 22%,50%, 18.5%);
-	--light-text-color: hsl(var(--main-hue),12%,80%);
-	--input-text: hsl(var(--main-hue), 10%,55%);
-	--input-bg: hsla(var(--main-hue), 55%, 48%,20%);
-	--input-shadow: hsla(var(--main-hue), 92%, 58%, 0.2);
-	--input-shadow-focus: hsla(var(--main-hue), 91%, 59%, 0.2);
+.dark {
+	--bg-color: hsl(var(--main-hue),30%, 13%);
+	--input-bg: #313e4a;
+	--input-bg-hover: #54626f;
+	--nav-color: #96f3ff;
+	--input-text: #dde1e7;
+	--light-text-color: #d0d6dd;
 	--text-color: #fff;
-	--nav-color: #c6edff;
-	
+
 }
-
-
+.transition{
+	transition: 1s !important;
+}
 header {
-	position: absolute;
 	width: 100%;
+	position: absolute;
+	widows: 100%;
 	top: 0;
 	left: 0;
-	z-index: 100;
-	transform: translate3d(0,calc(var(--scrollTop)), 0); 
+	z-index: 4;
+	transform: translate3d(0,var(--scrollTop), 0); 
 }
-header .head-container {
+header .container {
+	max-width: 85rem;
 	margin: 0 auto;
-	height: calc(var(--index-tasty) * 2.8);
-	padding: calc(var(--index-tasty) * 1.5);
+	padding: 1.5rem 0.8rem;
+	height: 65px;
 	display: flex;
 	align-items: center;
-	justify-content: flex-end;
+	justify-content: end;
 }
 .nav-link {
 	padding: 0 1rem;
 	font-weight: 600;
-	font-size: 1rem;
+	font-size: 2.2rem;
 	color: var(--nav-color);
-	transition: 0.3s;
-	
+	transition: .3s;
 }
 .nav-link:hover {
 	color: var(--main-color);
@@ -76,56 +65,43 @@ header .head-container {
 	cursor: pointer;
 }
 .theme-toggle .fa-moon {
-	font-size: 2rem;
 	display: none;
 }
 .theme-toggle .fa-sun {
-	font-size: 2rem;
-	display: inline;
-	
-}
-.dark .theme-toggle .fa-moon{
 	display: inline;
 }
-.dark .theme-toggle .fa-sun{
+.dark .theme-toggle .fa-moon {
+	display: inline;
+}
+.dark .theme-toggle .fa-sun {
 	display: none;
 }
+/* _______________________________________________Форум Текст____________________________________ */
 
-
-
-.contact {
+.contact{
 	width: 100%;
 	overflow: hidden;
 	background-color: var(--bg-color);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	
 }
-.contact .main-container {
+.contact .container{
 	height: 100vh;
-	max-width: 2100px;
+	min-height: 700px;
 	display: grid;
 	grid-template-columns: 3fr 1fr;
 	grid-template-rows: 1fr;
-	grid-template-areas: "mapmy formmy";
-	/* display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: 1fr; */
-
 }
-/* .contact .main-container > div {
+.contact .container .left {
 	grid-column: 1/2;
 	grid-row: 1/2;
-} */
+}.contact .container .right {
+	grid-column: 2/3;
+	grid-row: 1/2;
+}
 
-.right__form {
-	grid-area: formmy;
-
+.right {
 	width: 100%;
 	max-width: 80rem;
 	margin: 0 auto;
-	background-color: red;
 	padding: 65px 1.5rem 0;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
@@ -133,27 +109,28 @@ header .head-container {
 	position: relative;
 	z-index: 3;
 }
+
 .contact-heading h1 {
 	font-weight: 600;
 	color: var(--text-color);
 	font-size: 3.5rem;
 	line-height: 0.9;
-	/* white-space: nowrap; */
-	margin-bottom: calc(var(--index-tasty) * 0.9);
+	white-space: nowrap;
 	margin-bottom: 1.2rem;
 }
 .contact-heading h1 span{
 	color: var(--main-color);
 }
-.text {
+.text{
 	color: var(--light-text-color);
 	line-height: 1.1;
-	font-size: 1rem;
-	font-weight: 600;
+	font-size: 1.3rem;
 }
-.form-wrapper {
+
+/* ________________________________________________Input__________________________________________ */
+
+.form-wrapper{
 	max-width: 32rem;
-	
 }
 .contact-form {
 	display: grid;
@@ -162,10 +139,10 @@ header .head-container {
 	column-gap: 2rem;
 	row-gap: 1rem;
 }
-.input-wrap{
+.input-wrap {
 	position: relative;
 }
-.contact-input {
+.contact-input{
 	width: 100%;
 	background-color: var(--input-bg);
 	padding: 1.5rem 1.35rem calc(0.75rem - 2px) 1.35rem;
@@ -177,36 +154,34 @@ header .head-container {
 	font-weight: 600;
 	font-size: 0.95rem;
 	border: 2px solid transparent;
-	box-shadow:  0 0 0 0px hsla(var(--main-hue), 92%, 54%, 0.169);
-	transition: .3s;
-
+	box-shadow: 0 0 0 0px hsla(var(--main-hue), 92%, 54%, 0.169);
+	transition: 0.3s;
 }
 .contact-input:hover {
 	background-color: var(--input-bg-hover);
 }
-
-.input-wrap label {
+.input-wrap label{
 	position: absolute;
 	top: 50%;
 	left: calc(1.35rem + 2px);
-	transform: translateY(-50%); /* На 50% самого себя, потому что щас он по верхнему краю встал */
+	transform: translateY(-50%);
 	color: var(--light-text-color);
-	font-size: calc(var(--index-tasty) * 0.55);
-	font-weight: 600;
 	pointer-events: none;
 	transition: .25s;
+	font-size: 1.2rem;
+	font-weight: 600;
 }
-.input-wrap .icon{
+.input-wrap .icon {
 	position: absolute;
 	right: calc(1.35rem + 2px);
 	top: 50%;
 	transform: translateY(-50%);
 	pointer-events: none;
 	color: var(--input-text);
-	font-size: 1.25rem;
+	font-size: 1.35rem;
 	transition: .3s;
 }
-.input-wrap.focus .contact-input {
+.input-wrap.focus .contact-input{
 	background-color: var(--bg-color);
 	border: 2px solid var(--light-main-color);
 	box-shadow: 0 0 0 7px hsla(var(--main-hue), 91%, 55%, 0.11);
@@ -214,15 +189,16 @@ header .head-container {
 .input-wrap.focus label {
 	color: var(--light-main-color);
 }
-.input-wrap.focus .icon {
+.input-wrap.focus .icon{
 	color: var(--light-main-color);
 }
-.input-wrap.not-empty label {
+.input-wrap.not-empty label{
 	font-size: .66rem;
-	top: .75rem;
+	top: 0.75rem;
 	transform: translateY(0);
 }
-.contact-buttons {
+/* ______________________________________Buttons_______________________________________ */
+.contact-buttons{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	column-gap: 1rem;
@@ -230,7 +206,7 @@ header .head-container {
 	width: 100%;
 	grid-column: span 2;
 }
-.btn {
+.btn{
 	display: inline-block;
 	padding: 1.1rem 2rem;
 	background-color: var(--main-color);
@@ -238,8 +214,8 @@ header .head-container {
 	border-radius: 40px;
 	border: none;
 	font-family: inherit;
-	font-weight: 500;
-	font-size: 1rem;
+	font-weight: 600;
+	font-size: 1.2rem;
 	cursor: pointer;
 	transition: 0.3s;
 }
@@ -249,8 +225,6 @@ header .head-container {
 .btn.rest {
 	background-color: var(--input-bg);
 	color: var(--light-text-color);
-	font-weight: 600;
-	font-size: calc(var(--index-tasty) * 0.55);
 }
 .btn.rest span {
 	color: var(--light-text-color);
@@ -258,21 +232,3 @@ header .head-container {
 .btn.rest:hover {
 	background-color: var(--input-bg-hover);
 }
-
-
-
-/* LEFT */
-
-
-.left__map {
-	grid-area:mapmy;
-	height: 100%;
-	width: 100%;
-	
-}
-.box__myCanvas{
-	width: 100%;
-	height: 100%;
-	background-color: blue;
-}
-
