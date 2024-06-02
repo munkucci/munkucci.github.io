@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head id="target">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<link rel="stylesheet" href="../css/forest.css">
 	<link rel="stylesheet" href="../css/tasty.css">
 	<script src="../js/appForest.js" defer></script>
-	<script src="../libs/rain.js" defer></script>
+	<!-- <script src="../libs/rain.js" defer></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" defer></script>
 	<script src="../js/appMain.js" defer></script>
-	<!-- <script src="../js/p5.min.js" defer></script> -->
+	<script src="../js/p5.min.js" defer></script>
 	
 </head>
 
@@ -57,7 +57,7 @@
 
 				<div class="left">
 					<div class="container-left">
-						<div class="moyCanvas"></div>
+						<div class="moyCanvas" id="canva"></div>
 					</div>
 				</div>
 				<div class="right">
@@ -68,26 +68,37 @@
 							<h1>Let`s go with algorithm A<span>*</span></h1>
 							<p class="text">We'll take the shortest route!</p>
 						</div>
-						<form action="forest.html" class="contact-form">
+						<form class="contact-form">
 
 							<div class="input-wrap">
-								<input class="contact-input" autocomplete="off" name="Start Point" type="text" required>
+								<input class="contact-input" autocomplete="off" name="Start Point" type="text"  id="int_start">
 								<label>Start Point</label>
 								<i class="icon fa-solid fa-location-crosshairs"></i>
 							</div>
 							<div class="input-wrap">
-								<input class="contact-input" autocomplete="off" name="Start Point" type="text" required>
-								<label>Start Point</label>
+								<input class="contact-input" autocomplete="off" name="End Point" type="text"  id="int_end">
+								<label>End Point</label>
+								<i class="icon fa-solid fa-location-crosshairs"></i>
+							</div>
+							<div class="input-wrap">
+								<input class="contact-input" autocomplete="off" name="Colum" type="text" required id="int_col">
+								<label>Column</label>
+								<i class="icon fa-solid fa-location-crosshairs"></i>
+							</div>
+							<div class="input-wrap">
+								<input class="contact-input" autocomplete="off" name="Row" type="text" required id="int_row">
+								<label>Row</label>
 								<i class="icon fa-solid fa-location-crosshairs"></i>
 							</div>
 
 							<div class="contact-buttons">
-								<button class="btn rest">
+								<button type="button" class="btn rest" id="btn_restart">
 									<span>
 										<i class="fa-solid fa-arrow-rotate-left"></i>
 									</span>restart
 								</button>
-								<button class="btn calk">Let`s go</button>
+								<button type="button" class="btn" id="btn_create">Create</button>
+								<button type="button" class="btn calk" id="btn_calkulate">Let`s go</button>
 							</div>
 
 						</form>
