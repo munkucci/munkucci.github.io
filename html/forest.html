@@ -1,41 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<link rel="stylesheet" href="../css/forest.css">
+	<link rel="stylesheet" href="../css/tasty.css">
 	<script src="../js/appForest.js" defer></script>
 	<script src="../libs/rain.js" defer></script>
-</head>
-<body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" defer></script>
+	<script src="../js/appMain.js" defer></script>
+	<!-- <script src="../js/p5.min.js" defer></script> -->
 	
-<div class="logo" style="background-image: url(../img/logo.svg);"></div>
+</head>
 
-<section class="layers">
-	<div class="layers__container">
-		<div class="layers__item layer-1" style="background-image: url(../img/layer-1.jpg);"></div>
+<body>
 
-		<div class="layers__item layer-2" style="background-image: url(../img/layer-2.png);"></div>
+	<header>
+		<div class="head-container">
+			<span class="nav-link theme-toggle">
+				<i class="fa-solid fa-sun"></i>
+				<i class="fa-solid fa-moon"></i>
+			</span>
+		</div>
+	</header>
 
-		<div class="layers__item layer-3">
-			<div class="hero-content">
-				<h1>Vatural Forest <span>HTML / CSS</span></h1>
-				<div class="hero-content__p">Creating a beautiful 3D website with a 'lens effect'</div>
-				<button class="button-start">Start Learning</button>
+	<div class="logo" style="background-image: url(../img/logo.svg);"></div>
+
+	<section class="layers">
+		<div class="layers__container">
+			<div class="layers__item layer-1" style="background-image: url(../img/layer-1.jpg);"></div>
+
+			<div class="layers__item layer-2" style="background-image: url(../img/layer-2.png);"></div>
+
+			<div class="layers__item layer-3">
+				<div class="hero-content">
+					<h1>Natural Forest <span>HTML / CSS</span></h1>
+					<div class="hero-content__p">Creating a beautiful 3D website with a 'lens effect'</div>
+					<button class="button-start">Start Learning</button>
+				</div>
 			</div>
+
+			<div class="layers__item layer-4">
+				<!-- <canvas class="rain"></canvas> -->
+			</div>
+
+			<div class="layers__item layer-5" style="background-image: url(../img/layer-5.png);"></div>
+			<div class="layers__item layer-6" style="background-image: url(../img/layer-6.png);"></div>
 		</div>
+	</section>
 
-		<div class="layers__item layer-4">
-			<!-- <canvas class="rain"></canvas> -->
-		</div>
+	<main>
+		<section class="contact">
+			<div class="main-container">
+				<!-- Игра A* -->
+				<div class="left__map">
+					<div class="box__myCanvas">
 
-		<div class="layers__item layer-5" style="background-image: url(../img/layer-5.png);"></div>
-		<div class="layers__item layer-6" style="background-image: url(../img/layer-6.png);"></div>
-	</div>
-</section>
+					</div>
+				</div>
 
-<div style="height: 100vh;"></div>
+				<!-- Форма -->
+				<div class="right__form">
+					<div class="form-wrapper">
+						<div class="contact-heading">
+							<h1>Let`go with the algorithm A<span>*</span></h1>
+							<p class="text">We'll take the shortest route!</p>
+						</div>
+						<form action="forest.html" class="contact-form">
+							<div class="input-wrap">
+								<input class="contact-input" autocomplete="off" name="Start Point" type="text" required>
+								<label>Start Point</label>
+								<i class="icon fa-solid fa-location-crosshairs"></i>
+							</div>
+							<div class="input-wrap">
+								<input class="contact-input" autocomplete="off" name="End Point" type="text" required>
+								<label>End Point</label>
+								<i class="icon fa-solid fa-location-crosshairs"></i>
+							</div>
+							<div class="contact-buttons">
+								<button class="btn rest">
+									<span>
+										<i class="fa-solid fa-arrow-rotate-left"></i>
+									</span> restart
+								</button>
+								<button class="btn calk">let` go!</button>
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
 
 </body>
+
 </html>
