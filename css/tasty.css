@@ -300,7 +300,7 @@ header .container {
 	}
 	
 }
-@media screen and (max-width: 300px){
+@media screen and (max-width: 348px){
 	html{
 		font-size: 11px;
 	}
