@@ -3,8 +3,17 @@ const inputs = document.querySelectorAll(".contact-input")
 const toggleBtn = document.querySelector(".theme-toggle")
 const allElements = document.querySelectorAll("*")
 
+const savedTheme = localStorage.getItem('theme');
+
+// Если тема уже сохранена в localStorage, применяем её к body
+if (savedTheme) {
+    document.body.classList.add(savedTheme);
+}
+
 toggleBtn.addEventListener("click", () => {
 	document.body.classList.toggle("dark");
+	const currentTheme = document.body.classList.contains("dark") ? "dark" : "light";
+    localStorage.setItem('theme', currentTheme);
 	allElements.forEach(el => {
 		el.classList.add("transition")
 		setTimeout(() => {
@@ -24,9 +33,9 @@ inputs.forEach(ipt => {
 			ipt.parentNode.classList.remove("not-empty")
 		}
 		ipt.parentNode.classList.remove("focus")
+		
 	})
 })
-
 
 window.addEventListener('scroll', e => {
 	document.body.style.cssText += `--scrollTop: ${this.scrollY}px`
@@ -101,7 +110,7 @@ btnCreate.addEventListener("click", () =>{
 	}
 	CAN_DRAW = true
 	setup()
-	redraw()
+	loop()
 })
 
 btnRestart.addEventListener("click", () => {
@@ -115,22 +124,40 @@ btnRestart.addEventListener("click", () => {
    end = undefined;
 	current = undefined
 
+	intStart.value = ""
+	intEnd.value = ""
+
    resizeCanvas(w,h);
     
 })
 
 
 btnCalc.addEventListener("click", () =>{
-	start = grid[0][0]
+	let str_point =  intStart.value
+	let n = str_point.split(',').map(i => parseInt(i))
+	start = grid[n[0]][n[1]]
 	openSet.push(start)
-	end = grid[cols -1][rows-1]
+
+	let str_point_end = intEnd.value
+	let mart = str_point_end.split(',').map(i => parseInt(i))
+	end = grid[mart[0]][mart[1]]
 	start.wall = false
 	end.wall = false
 	CAN = true
 
-	setup()
-	loop()
+	// setup()
+	// loop()
 })
+
+function mousePressed(){
+
+	for (let i = 0; i < cols; i++){
+		for (let j = 0; j < rows; j++){
+			grid[i][j].clicked()
+		}
+	}
+	
+}
 
 
 
@@ -144,8 +171,10 @@ function Spot(i,j) {
 	this.neighbors = []
 	this.previous = undefined
 	this.wall = false
+	this.target = false
+	this.colorTarget = 0
 
-	if (random(1) < 0.3){
+	if (random(1) < 0.4){
 		this.wall = true
 	}
 
@@ -153,6 +182,9 @@ function Spot(i,j) {
 		fill(color)
 		if (this.wall){
 			fill(0)
+		}
+		if(this.target){
+			fill(this.colorTarget)
 		}
 		noStroke()
 		rect(this.i*w, this.j*h, w-1,h-1)
@@ -187,6 +219,27 @@ function Spot(i,j) {
 		}
 
 		
+	}
+	this.clicked = function(){
+		let row_kord = floor(mouseY / h)
+		let col_kord = floor(mouseX / w)
+		if(this.i == col_kord && this.j==row_kord){
+			this.target = true
+			this.colorTarget = color(255, 165, 0)
+			
+			let points = document.querySelectorAll(".way-point")
+			for (let p of points){
+				if(p.value == ""){
+					p.value = col_kord + ',' + row_kord
+					p.parentNode.classList.add("not-empty")
+					break
+				}
+			}
+			
+			
+			// let el = document.querySelector(".input-wrap .focus .input")
+			// el.value = row_kord +' '+col_kord
+		}
 	}
 
 

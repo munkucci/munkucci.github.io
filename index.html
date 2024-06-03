@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Lets go</title>
-	<link rel="stylesheet" href="css/main.css">
-
+	<link rel="stylesheet" href="css/wave.css">
 	<script src="libs/gsap/gsap.min.js" defer></script>
 	<script src="libs/gsap/ScrollTrigger.min.js" defer></script>
 	<script src="libs/gsap/ScrollSmoother.min.js" defer></script>
 	<script src="js/app.js" defer></script>
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=4bfc8b7a-a5cd-47c3-8186-b71a292787e0&lang=ru_RU" type="text/javascript">	
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" defer></script>
 </head>
 <body>
+
 	<div class="wrapper">
 		<div class="content">
+
 			<header class="main-header">
 				<div class="layers">
 		
@@ -33,10 +37,31 @@
 				<div class="main-article__content">
 					<h2 class="main-article__header">To be continued</h2>
 					<p class="main-article__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores modi ducimus, perferendis nobis dolorem et dolor optio quos, neque voluptatibus autem eum quia eos. Earum quia iure animi necessitatibus adipisci corporis assumenda?</p>
-					<div class="copy">© WebDesign Master</div>
+					
 				</div>
 			</article>
+
+			<div class="main_container_waveAndmap">
+				<div class="container_map">
+					<div class="Rutmap" id="map-test"></div>
+				</div>
+				<div class="container_wave">
+					<div class="items">
+						 <div class="item" style="background-image: url(https://images.wallpaperscraft.ru/image/single/ozero_les_sneg_130421_1440x900.jpg)" tabindex="1"></div>
+						 <div class="item" style="background-image: url(https://images.wallpaperscraft.ru/image/single/les_chelovek_odinochestvo_116306_1440x900.jpg)" tabindex="1"></div>
+						 <div class="item" style="background-image: url(https://images.wallpaperscraft.ru/image/single/zamok_zdanie_arhitektura_1145050_1440x900.jpg)" tabindex="1"></div>
+						 <div class="item" style="background-image: url(https://images.wallpaperscraft.ru/image/single/bashnia_most_otrazhenie_1208344_1440x900.jpg)" tabindex="1"></div>
+						 <div class="item" style="background-image: url(https://images.wallpaperscraft.ru/image/single/doma_derevnia_dolina_1162526_1440x900.jpg)" tabindex="1"></div>
+						 <div class="item" style="background-image: url(https://images.wallpaperscraft.ru/image/single/dom_reka_bereg_1143662_1440x900.jpg)" tabindex="1"></div>
+						 <div class="item" style="background-image: url(https://images.wallpaperscraft.ru/image/single/prud_les_derevia_1201885_1440x900.jpg)" tabindex="1"></div>
+						 <div class="item" style="background-image: url(https://images.wallpaperscraft.ru/image/single/ozero_holmy_priroda_1133416_1440x900.jpg)" tabindex="1"></div>
+						 <div class="item" style="background-image: url(https://images.wallpaperscraft.ru/image/single/lebedi_lodki_pirs_1213256_1440x900.jpg)" tabindex="1"></div>
+						 <div class="item" style="background-image: url(https://images.wallpaperscraft.ru/image/single/les_derevia_otrazhenie_1128925_1440x900.jpg)" tabindex="1"></div>
+						 <div class="item" style="background-image: url(https://images.wallpaperscraft.ru/image/single/gorod_vid_sverhu_doroga_156925_1400x1050.jpg)" tabindex="1"></div>
+					</div>
+				</div>
 		</div>
 	</div>
+	
 </body>
 </html>

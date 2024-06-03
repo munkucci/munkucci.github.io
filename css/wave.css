@@ -8,6 +8,9 @@
 	--index: calc(1vw + 1vh);
 	--text: #e7e7e0;
 	--transition: transform .75s cubic-bezier(.075, 0.5, 0, 1);
+
+	--index-wave: calc(1vw + 1vh);
+	--transition-wave: cubic-bezier(.1,.7,0,1) /* cubic-bezier.com создать кривую безье*/
 }
 
 @font-face {
@@ -31,6 +34,7 @@ body {
 
 .main-header {
 	position: relative;
+	height: 100vh;
 }
 .main-header::after {
 	content: '';
@@ -129,7 +133,6 @@ body {
 .content {
 	will-change: transform;
 }
-
 .copy {
 	 position: absolute;
 	 bottom: calc(var(--index) * 2.5);
@@ -137,3 +140,109 @@ body {
 	 font-size: calc(var(--index) * .75);
 	 letter-spacing: calc(var(--index) / 35.7);
 }
+
+/* Block Wave*/
+.main_container_waveAndmap {
+	height: 100vh;
+}
+/*Block Map*/
+.Rutmap {
+	width: 100%;
+	height: 100%;
+	
+}
+.container_map {
+	height: 60%;
+	width: 100%;
+}
+
+.container_wave {
+	height: 40%;
+	width: 100%;
+	display: flex; 
+	align-items: center; /* по вертикали */
+	justify-content: center; 
+}
+
+.items {
+	display: flex;
+	gap: .4rem;
+	perspective: calc(var(--index-wave) * 35);
+}
+.item {
+	width: calc(var(--index-wave) * 3);
+	height: calc(var(--index-wave) * 12);; 
+	background-color: #222;
+	background-size: cover;
+	background-position: center;
+	cursor: pointer;
+
+	filter: grayscale() brightness(.5);
+	transition: transform 1.25s var(--transition-wave), filter 3s var(--transition-wave), width .6s cubic-bezier(.62,-0.04,.83,.67); /*  transition: property duration timing-function delay; */
+
+	will-change: transform, filter; /* говорим браузеру подготовиться к нагрузке (тобишь к анимации transform, filter) */
+}
+/* Заглушки между карточками, чтобы курсор не проваливался*/
+.item::before, .item::after {
+	content: '';
+	position: absolute;
+	/* background-color: #fff; */
+	height: 100%;
+	width: 35px;
+	right: calc(var(--index-wave) * -1 );
+}
+.item::after {
+	left: calc(var(--index-wave) * -1 );
+}
+
+.items .item:hover {
+	width: calc(var(--index-wave) * 5);
+	filter: inherit;
+	transform: translateZ(calc(var(--index-wave) * 10));
+}
+/* Right */
+
+.items .item:hover + * {
+	filter: inherit;
+	transform: translateZ(calc(var(--index-wave) * 8.5)) rotateY(35deg);
+	z-index: -1;
+}
+.items .item:hover + * + * {
+	filter: inherit;
+	transform: translateZ(calc(var(--index-wave) * 5.6)) rotateY(40deg);
+	z-index: -2;
+}
+.items .item:hover + * + * + *{
+	filter: inherit;
+	transform: translateZ(calc(var(--index-wave) * 2.4))rotateY(30deg);
+	z-index: -3;
+}
+.items .item:hover + * + * + * + *{
+	filter: inherit;
+	transform: translateZ(calc(var(--index-wave) * .6)) rotateY(14deg);
+	z-index: -4;
+}
+
+/* Left */
+
+.items .item:has(+ :hover) { /* Если следующий элемент имеет class = "active" то собственно*/
+	filter: inherit;
+	transform: translateZ(calc(var(--index-wave) * 8.5)) rotateY(-35deg);
+	/* по z-index все итак правильно формируется*/
+}
+.items .item:has(+ * + :hover){
+	filter: inherit;
+	transform: translateZ(calc(var(--index-wave) * 5.6)) rotateY(-40deg);
+}
+.items .item:has(+ * + * + :hover){
+	filter: inherit;
+	transform: translateZ(calc(var(--index-wave) * 2.4)) rotateY(-30deg);
+	
+}
+.items .item:has(+ * + * + * + :hover){
+	filter: inherit;
+	transform: translateZ(calc(var(--index-wave) * .6)) rotateY(-14deg);
+}
+
+
+
